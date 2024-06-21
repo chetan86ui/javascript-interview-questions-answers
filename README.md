@@ -7,3 +7,9 @@ This JavaScript repository offers interview prep for both interviewers and candi
  - **Advanced Questions:** Complex scenarios and advanced topics.
  - **Coding Challenges:** Practical coding problems and solutions.
  - **Best Practices:** Tips and guidelines for writing clean and efficient JavaScript code.
+
+   To run tests, run the following command
+
+```bash
+  npm run test
+```
