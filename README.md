@@ -177,3 +177,33 @@ const sumWithInitial = array1.reduce(
 console.log(sumWithInitial);
 // Expected output: 10
 ```
+
+### What is a Higher Order Function? and How its working.
+A higher order function is a function that takes one or more functions as arguments, or returns a function as its result.
+There are several different types of higher order functions like map and reduce. We will discuss these later in this tutorial. But before that let's first dive deep into what higher order functions are.
+
+```javascript
+// Callback function, passed as a parameter in the higher order function
+function callbackFunction(){
+    console.log('I am  a callback function');
+}
+
+// higher order function
+function higherOrderFunction(func){
+    console.log('I am higher order function')
+    func()
+}
+
+higherOrderFunction(callbackFunction);
+```
+In the above code higherOrderFunction() is an HOF because we are passing a callback function as a parameter to it.
+
+The above example is quite simple isn't it? So let's expand it further and see how you can use HOFs to write more concise and modular code.
+You can use higher order functions in a variety of ways.
+
+When working with arrays, you can use the map(), reduce(), filter(), and sort() functions to manipulate and transform data in an array.
+
+When working with objects, you can use the Object.entries() function to create a new array from an object.
+
+When working with functions, you can use the compose() function to create complex functions from simpler ones.
+
