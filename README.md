@@ -206,4 +206,42 @@ When working with arrays, you can use the map(), reduce(), filter(), and sort() 
 When working with objects, you can use the Object.entries() function to create a new array from an object.
 
 When working with functions, you can use the compose() function to create complex functions from simpler ones.
+### 3 Ways to Promise
+There are 3 ways you could want promises to resolve, parallel (all together), sequential (1 after another), or a race (doesn't matter who wins).
+```javascript
+const promisify = (item, delay) =>
+  new Promise(resolve => setTimeout(() => resolve(item), delay));
+
+const a = () => promisify("a", 100);
+const b = () => promisify("b", 5000);
+const c = () => promisify("c", 3000);
+
+async function parallel() {
+  const promises = [a(), b(), c()];
+  const [output1, output2, output3] = await Promise.all(promises);
+  return `parallel is done: ${output1} ${output2} ${output3}`;
+}
+
+async function sequence() {
+  const output1 = await a();
+  const output2 = await b();
+  const output3 = await c();
+  return `sequence is done: ${output1} ${output2} ${output3}`;
+}
+
+async function race() {
+  const promises = [a(), b(), c()];
+  const output1 = await Promise.race(promises);
+  return `race is done: ${output1}`;
+}
+
+sequence().then(console.log);
+parallel().then(console.log);
+race().then(console.log);
+
+// race is done: a
+// parallel is done: a b c
+// sequence is done: a b c
+```
+
 
